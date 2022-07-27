@@ -23,21 +23,87 @@
     font-weight: bold;
     font-family: 'New Tegomin', serif;
     color: #fff;
+    text-shadow: 2px 2px 8px #FF0000;
 }
 
 #hiscoreBox {
     position: absolute;
     top: 59px;
-    right: 140px;
+    right: 158px;
     font-size: 39px;
     font-weight: bold;
     font-family: 'New Tegomin', serif;
     color: #fff;
+    text-shadow: 2px 2px 8px #FF0000;
+}
+
+#reset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 15px;
+    right: 200px;
+    font-family: 'New Tegomin', serif;
+    height: 30px;
+    width: 110px;
+    padding: 5px 5px;
+    border-radius: 12px;
+    background-color: rgb(53, 50, 50);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#reset:hover{
+    background-color: rgb(19, 16, 16);
+}
+
+#difficulty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 15px;
+    right: 60px;
+    font-family: 'New Tegomin', serif;
+    padding: 5px 5px;
+    background: transparent;
+    background-color: rgba(216, 205, 205, 0.45);
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+#difficulty .choose label{
+    cursor: pointer;
+    padding: 4px 8px;
+    /* font-size: 20px; */
+    font-weight: bold;
+    background: rgb(53, 50, 50);
+    border-radius: 8px;
+}
+
+#difficulty .choose label:hover{
+    background-color: rgb(19, 16, 16);
+}
+
+#difficulty input{
+    display: none;
+}
+
+#difficulty input:checked + label{
+    color: red;
 }
 
 #board {
     background: transparent;
-    background-color: rgba(255, 255, 255, .45);
+    background-color: rgba(100, 95, 95, 0.45);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, .25);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
@@ -49,20 +115,90 @@
     grid-template-columns: repeat(18, 1fr);
 }
 
-.head {
-    background: url('../img/snakeFace.svg');
+.headUp {
+    background: url('../img/snakeFaceUp.png');
     background-repeat: no-repeat;
     background-size: cover;
-    transform: scale(1.02);
+}
+
+.headDown {
+    background: url('../img/snakeFaceDown.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.headLeft {
+    background: url('../img/snakeFaceLeft.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.headRight {
+    background: url('../img/snakeFaceRight.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .snake {
-    background-color: greenyellow;
-    border-radius: 50%;
-}
-
-.food {
-    background: url('../img/apple.svg');
+    background: url('../img/body.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.food {
+    background: url('../img/food.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+ 
+/* Modal  --------------------------------------------------------*/
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+}
+
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+
+.close-button:hover {
+    background-color: darkgray;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    z-index: 2;
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+/* ------------------------------------------------------------------------ */
